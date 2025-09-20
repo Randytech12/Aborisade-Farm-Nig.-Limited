@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> ABORISADE FARMS NIGERIA LIMITED- Farming & Produce</title>
+  <meta name="description" content="An agriculture business website showcasing farm produce, livestock, and services with a modern design and easy navigation." />
+  <style>
+    :root {
+      --bg: #def5dc; /* Beige background for an earthy feel */
+      --surface: #ffffff;
+      --muted: #666;
+      --text: #0a0a0b;
+      --brand: #228b22; /* Forest green as the primary brand color */
+      --brand-600: #1e7a1e;
+      --brand-700: #196b19;
+      --accent: #d2b48c; /* Tan/brown accent color */
+      --ok: #22c55e;
+      --danger: #ef4444;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.15);
+      --maxw: 1200px;
+    }
+    body{
+      background-color: var(--bg);
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--maxw);margin:auto;padding:0 20px}
+    .pill{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .75rem;border:1px solid var(--muted);border-radius:999px;font-size:.825rem;color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.9rem 1.2rem;border-radius:12px;border:1px solid transparent;background:var(--brand);color:white;font-weight:600;box-shadow:var(--shadow);}
+    .btn:hover{background:var(--brand-600)}
+    .btn.alt{background:transparent;border-color:var(--muted);color:var(--text);box-shadow:none}
+    .btn.alt:hover{border-color:var(--text)}
+    header.site{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.8);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid rgba(0,0,0,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+    .nav .logo{display:flex;align-items:center;gap:.6rem;font-weight:800;letter-spacing:.3px}
+    .logo-badge{width:36px;height:36px;border-radius:10px;background:var(--brand);display:grid;place-items:center;color:white;font-weight:900;}
+    .nav a{color:var(--muted)}
+    .nav ul{display:flex;gap:1.2rem;list-style:none;padding:0;margin:0}
+    .menu-toggle{display:none}
+    @media (max-width: 920px){
+      .nav ul{display:none}
+      .menu-toggle{display:inline-flex}
+    }
+    section{padding:72px 0}
+    h2{font-size:clamp(1.6rem,4vw,2.2rem);margin:0 0 8px; text-align:center;}
+    .sub{color:var(--muted);margin:0 0 24px; text-align:center;}
+    .grid{display:grid;gap:22px}
+    .grid.cols-3{grid-template-columns: repeat(3, minmax(0,1fr))}
+    .grid.cols-2{grid-template-columns: repeat(2, minmax(0,1fr))}
+    @media (max-width:920px){
+      .grid.cols-3, .grid.cols-2{grid-template-columns:1fr}
+    }
+    .card{background:var(--surface);border:1px solid rgba(0,0,0,.08);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);}
+    .hero{padding:70px 0 40px;background:linear-gradient(180deg, rgba(34,139,34,.08), transparent 60%)}
+    .hero-grid{display:grid;grid-template-columns: 1fr 1fr;gap:48px;align-items:center}
+    .hero h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin:.6rem 0}
+    .lead{font-size:1.125rem;color:var(--muted);max-width:55ch}
+    .hero-image{border-radius:var(--radius);overflow:hidden;height:100%;}
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .mySlides {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+    .mySlides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 1.5s ease-in-out;
+    }
+    .fade {
+      animation-name: fade;
+      animation-duration: 1s;
+    }
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+    .service{display:flex;gap:14px}
+    .service svg{flex:none;width:28px;height:28px;opacity:.9}
+    .quote{font-size:1.05rem;color:var(--text)}
+    .stars{letter-spacing:.18rem; color:var(--accent);}
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    footer{padding:40px 0;border-top:1px solid rgba(0,0,0,.08);color:var(--muted)}
+    .footer-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:22px}
+    @media (max-width:920px){
+      .hero-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <nav class="nav container" aria-label="Primary">
+      <a class="logo" href="#top" id="top" aria-label="ABORISADE FARMS">
+        <span class="logo-badge">AF</span>
+        <span>ABORISADE FARMS NIGERIA LIMITED. </span>
+      </a>
+      <button id="menuBtn" class="btn alt menu-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+      <ul id="navMenu">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>ABORISADE FARMS NIGERIA LIMITED </h1>
+          <p class="lead">Harvesting Crops, Raising Healthy Animals</p>
+          <div style="margin-top:14px">
+            <a href="#services" class="btn">Our Services</a>
+          </div>
+        </div>
+        <div class="hero-image card">
+          <div class="slideshow-container">
+            <div class="mySlides fade">
+              <img src="https://i.pinimg.com/1200x/d1/58/46/d15846fb88c311ae9a60efb4b3196e05.jpg" alt="Farmland">
+            </div>
+            <div class="mySlides fade">
+              <img src="https://i.pinimg.com/1200x/68/57/d9/6857d993d6681664dbee5f06a38776b6.jpg" alt="Livestock">
+            </div>
+            <div class="mySlides fade">
+              <img src="https://i.pinimg.com/1200x/ee/a5/8c/eea58c097e87b67eaf5a1c03f1f72afb.jpg" alt="Banana Tree">
+            </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2>OUR SERVICES</h2>
+        <div class="grid cols-3">
+          <div class="card service">
+            <div>
+              <h3>CROP FARMING</h3>
+              <p class="muted">High-quality Fresh vegetables And Fruits Grown With Care And Sustainability.</p>
+            </div>
+          </div>
+          <div class="card service">
+            <div>
+              <h3>LIVESTOCK REARING</h3>
+              <p class="muted">Healthy and Well-Cared-for livestock, Including Poultry, Pigs, and Cattle.</p>
+            </div>
+          </div>
+          <div class="card service">
+            <div>
+              <h3>AGRO-CONSULTING</h3>
+              <p class="muted">Expert Advice On Farm Management, Crop Rotation, And Sustainable Farming Practices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <h2>Gallery</h2>
+        <p class="sub">A look At Our Farms And Animals</p>
+        <div class="grid cols-3">
+          <div class="card"><img src="farmland.jpg" alt="Farm field"></div>
+          <div class="card"><img src="fishpond.jpg" alt="Fish Pond"></div>
+          <div class="card"><img src="pig.jpg" alt="Pig On The Farm"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="container">
+        <h2>FARM VIDEOS</h2>
+        <p class="sub">Experience Our Farms And See Our Animals In Action.</p>
+        <div class="video-grid">
+          <div class="video-container card">
+            <iframe width="560" height="315" src="cow.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-container card">
+            <iframe width="560" height="315" src="farm.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p class="sub">Get In Touch With Us For Your Agricultural Needs.</p>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>Address</h3>
+            <p class="muted">Lagos, Nigeria.</p>
+            <h3 style="margin-top:14px">Phone & Email</h3>
+            <p class="muted">+13239288126, +2347026116314<br>aborisadekayodeolusegun@yahoo.com</p>
+          </div>
+          <div class="card"style="padding:40px">
+            <form action="#" onsubmit="event.preventDefault(); alert('Form submitted! We will get back to you soon.');">
+              <label>Name<br><input type="text" required style="width:100%;padding:12px;margin-top:6px;border-radius:10px;border:1px solid var(--muted)"/></label>
+              <label style="margin-top:12px;display:block;">Email<br><input type="email" required style="width:100%;padding:12px;margin-top:6px;border-radius:10px;border:1px solid var(--muted)"/></label>
+              <label style="margin-top:12px;display:block;">Message<br><textarea required style="width:100%;padding:10px;margin-top:6px;border-radius:10px;border:1px solid var(--muted)"></textarea></label>
+              <div style="margin-top:14px"><button class="btn" type="submit">Send Message</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <p>© <span id="y"></span> RandyTech. All rights reserved.</p>
+      <p class="muted" style="text-align:right">Policies • Privacy</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    let slideIndex = 0;
+    showSlides();
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      slides[slideIndex-1].style.display = "block";  
+      setTimeout(showSlides, 5000); // Change image every 5 seconds
+    }
+  </script>
+</body>
+</html>
